@@ -20,7 +20,7 @@ def get_game_state():
 def make_move():
     global board, game_status, current_turn
     
-    position = request.json.get("position", type=int)
+    position = request.json.get("position" )
     
     # Validate move
     if not (0 <= position <= 8) or board[position] != "":
