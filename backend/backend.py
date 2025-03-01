@@ -37,6 +37,7 @@ def make_move():
     
     # Get position from request
     data = request.get_json()
+    print(data)
     if not data or "position" not in data:
         return jsonify({"error": "Missing position in request"}), 400
     
