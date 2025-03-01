@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './frontend-react/build'  # Make sure this matches your output folder
+          path: './frontend-react/dist'  # Make sure this matches your output folder
       
       - name: Deploy to GitHub Pages
         id: deployment
