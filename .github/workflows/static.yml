@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - 'frontend-react/**'
+      - '.github'
 
 jobs:
   deploy:
