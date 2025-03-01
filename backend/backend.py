@@ -72,18 +72,7 @@ def make_move():
         "turn": current_turn
     })
 
-@app.route("/reset", methods=["POST"])
-def reset_game():
-    """Reset the game state."""
-    global board, game_status, current_turn
-    board = ["" for _ in range(9)]
-    game_status = "ongoing"
-    current_turn = "X"
-    return jsonify({
-        "board": board,
-        "status": game_status,
-        "turn": current_turn
-    })
+
 
 if __name__ == "__main__":
     # Using Let's Encrypt SSL certificates
