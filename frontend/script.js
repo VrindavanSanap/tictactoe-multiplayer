@@ -41,7 +41,7 @@ function update_ui() {
     }
 }
 async function upload_move(position) { 
-    fetch("https://tictaktoe.duckdns.org:5000/move", {
+    await fetch("https://tictaktoe.duckdns.org:5000/move", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -57,9 +57,10 @@ async function handle_cell_click(cell_id) {
     if (board[index] === "") {
         board[index] = current_turn;
         current_turn = current_turn === "X" ? "O" : "X";
-        await upload_move(index);
 
         update_ui();
+        await upload_move(index);
+
         error_message.style.visibility = 'hidden';
     } else {
         error_message.innerText = "Invalid move! Cell is already taken.";
