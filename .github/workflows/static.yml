@@ -1,20 +1,19 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
     paths:
       - 'frontend-react/**'
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     steps:
@@ -38,8 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload build output directory
-          path: './frontend-react/dist'
+          path: './frontend-react/build'  # Make sure this matches your output folder
       
       - name: Deploy to GitHub Pages
         id: deployment
