@@ -86,7 +86,6 @@ def reset_game():
     })
 
 if __name__ == "__main__":
-    # Add SSL if you have cert.pem and key.pem
-    app.run(host='0.0.0.0', port=5000, ssl_context=('cert.pem', 'key.pem'))
-    # Otherwise, use this:
-    # app.run(host='0.0.0.0', port=5000)
+    # Using Let's Encrypt SSL certificates
+    app.run(host='0.0.0.0', port=5000, ssl_context=('/etc/letsencrypt/live/tictaktoe.duckdns.org/fullchain.pem', 
+                                                   '/etc/letsencrypt/live/tictaktoe.duckdns.org/privkey.pem'))
