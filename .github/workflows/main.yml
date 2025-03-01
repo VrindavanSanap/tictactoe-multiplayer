@@ -17,4 +17,7 @@ jobs:
       # run any `bun` or `bunx` command
       - run: cd ./frontend-react
       - run: bun install
+        working-directory: ./frontend-react
+
       - run: bun run build
+        working-directory: ./frontend-react
