@@ -25,7 +25,7 @@ async function fetch_game_state() {
 fetch_game_state();
 
 // Poll for updates every 2 seconds
-setInterval(fetch_game_state, 2000);
+setInterval(fetch_game_state, 1000);
 
 function update_ui() {
     for (let i = 0; i < 9; i++) {
