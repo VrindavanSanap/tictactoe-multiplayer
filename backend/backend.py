@@ -38,31 +38,4 @@ def make_move():
         "turn": current_turn
     })
 if __name__ == "__main__":
-    # SSL certificate and key paths
-    ssl_cert = "cert.pem"
-    ssl_key = "key.pem"
-    
-    # Run with gunicorn using SSL
-    import gunicorn.app.base
-    
-    class StandaloneApplication(gunicorn.app.base.BaseApplication):
-        def __init__(self, app, options=None):
-            self.options = options or {}
-            self.application = app
-            super().__init__()
-
-        def load_config(self):
-            for key, value in self.options.items():
-                self.cfg.set(key.lower(), value)
-
-        def load(self):
-            return self.application
-
-    options = {
-        'bind': '0.0.0.0:5000',
-        'workers': 2,
-        'certfile': ssl_cert,
-        'keyfile': ssl_key
-    }
-
-    StandaloneApplication(app, options).run()
+    app.run(host='0.0.0.0', port=5000)

@@ -4,7 +4,7 @@ let current_turn = "X"; // Track whose turn it is
 // Function to fetch game state from server
 async function fetch_game_state() {
     try {
-        const response = await fetch('https://43.205.139.34:5000/game_state');
+        const response = await fetch('http://43.205.139.34:5000/game_state');
         const data = await response.json();
         board = data.board;
         game_status = data.status;
@@ -41,7 +41,7 @@ function update_ui() {
     }
 }
 async function upload_move(position) { 
-	fetch("https://43.205.139.34:5000/move", {
+	fetch("http://43.205.139.34:5000/move", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
